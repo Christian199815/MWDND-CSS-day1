@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filters</title>
+
+    <link rel="stylesheet" href="filters.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ 
+  </head>
+  <body>
+    <!-- top sorting and item count -->
+    <!-- <div></div> -->
+
+    <!-- left filtering blocks -->
+    <div id="filter-block">
+      <details>
+        <summary>Ages</summary>
+        <div>
+          <label for="age1"
+            >young
+            <input type="checkbox" id="age1" />
+          </label>
+
+          <label for="age2"
+            >normal
+            <input type="checkbox" id="age2" />
+          </label>
+
+          <label for="age3"
+            >old
+            <input type="checkbox" id="age3" />
+          </label>
+        </div>
+      </details>
+
+      <details>
+        <summary>Liked People</summary>
+        <div>
+          <label for="lp1">Show liked people
+          <input type="checkbox" id="lp1" />
+        </label>
+        </div>
+      </details>
+
+      <details>
+        <summary>Rating</summary>
+        <div>
+          <label for="r1"
+            >1 star
+            <input type="checkbox" id="r1" />
+          </label>
+          <label for="r2"
+            >2 stars
+            <input type="checkbox" id="r2" />
+          </label>
+          <label for="r3"
+            >3 stars
+            <input type="checkbox" id="r3" />
+          </label>
+          <label for="r4"
+            >4 stars
+            <input type="checkbox" id="r4" />
+          </label>
+          <label for="r5"
+            >5 stars
+            <input type="checkbox" id="r5" />
+          </label>
+        </div>
+      </details>
+    </div>
+    <!-- items -->
+    <div>
+      <ul>
+        <li id="lock1"><p class="old">25</p></li>
+        <li id="lock2"><p class="young">14</p></li>
+        <li id="lock3"><p class="normal">21</p></li>
+        <li id="lock4"><p class="normal">20</p></li>
+        <li id="lock5"><p class="young">19</p></li>
+        <li id="lock6"><p class="old">32</p></li>
+        <li id="lock7"><p class="old">48</p></li>
+        <li id="lock8"><p class="normal">22</p></li>
+      </ul>
+    </div>
+  </body>
+</html>
