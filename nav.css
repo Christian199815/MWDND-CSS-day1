@@ -1,0 +1,120 @@
+.poppins-regular {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+   
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Poppins, Helvetica, sans-serif;
+}
+
+body>div{
+    container-name: headerTest;
+    container-type: inline-size;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 3em;
+    column-gap: 4em;
+    
+}
+
+header > img {
+    height: 2em;
+    flex: 1;
+    justify-content: flex-start;
+
+}
+
+header > form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 4;
+    background-color: rgb(235, 235, 235);
+    border-radius: .3em;
+
+}
+header > form img{
+    width: 3em;
+    height: 3em;
+}
+
+header > div {
+    flex: 1;
+    display: flex;
+    gap:2em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header > div img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+header > div img:nth-child(3){
+    width: 2em;
+    height: 2em;
+
+}
+
+header > form input{
+    background-color: transparent;
+    border: none;
+
+    padding: 1em 1.5em;
+    width: 100%;
+}
+
+header > form input::placeholder{
+    font-weight: 500;
+    color:black;
+}
+
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    gap: 1.5em;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+main > h1{
+    font-size: 3em;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    padding-top: 1.5em;
+    font-weight: 400;
+}
+
+main > h2{
+    font-size: 3em;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    font-weight: 400;
+    line-height: 1.3em;
+}
+
+main > h2 span{
+    font-weight: 700;
+    text-decoration: underline;
+}
