@@ -2,7 +2,7 @@ const baseUrl = 'https://fdnd.directus.app/items/person/';
 const othersFilter = '?filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"CMD%20Minor%20Web%20Dev"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}';
 const othersUrl = baseUrl + othersFilter;
 
-const section = document.querySelector("section")
+const section = document.querySelector("#card-block section")
 
 async function loadData() {
     try {
