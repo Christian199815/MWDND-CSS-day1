@@ -3,54 +3,150 @@
     --content-block-color: #3a6fba;
 }
 
+
+/* body */
 body{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Poppins, Helvetica, sans-serif;
+
     background-color: white;
     display: flex;
-    flex-direction: column;
-
-    font-family: "Poppins", serif;
-    font-weight: 400;
-    font-style: normal;
-
 }
 
 
-body > div:nth-of-type(2){
-    padding-left: 5em;
-    width: 100%;
+/* #region header */
 
-    background-color: var(--content-block-color);
-
+#header{
+    container-name: headerTest;
     container-type: inline-size;
-    container-name: content-block;
 }
 
-
-main li{
-    width: 1em;
-    height: 2em;
-}
-
-main ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-
+header {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    gap: 25%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 3em;
+    column-gap: 4em;
+    
+}
+
+header > img {
+    height: 2em;
+    flex: 1;
+    justify-content: flex-start;
+
+}
+
+header > form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 4;
+    background-color: rgb(235, 235, 235);
+    border-radius: .3em;
+
+}
+header > form img{
+    width: 3em;
+    height: 3em;
+}
+
+header > div {
+    flex: 1;
+    display: flex;
+    gap:2em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header > div img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+header > div img:nth-child(3){
+    width: 2em;
+    height: 2em;
+
+}
+
+header > form input{
+    background-color: transparent;
+    border: none;
+
+    padding: 1em 1.5em;
+    width: 100%;
+}
+
+header > form input::placeholder{
+    font-weight: 500;
+    color:black;
+}
+
+/* #endregion */
+
+/* #region navigation  */
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    gap: 1.5em;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+/* #endregion */
+
+/* #region title section */
+main section:first-of-type{
+    height: 22em;
+}
+
+main section h1{
+    font-size: 3em;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    padding-top: 1.5em;
+    font-weight: 400;
+}
+
+main section h2{
+    font-size: 3em;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    font-weight: 400;
+    line-height: 1.3em;
+}
+
+main section h2 span{
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 
-#filter-block{
+
+/* #endregion */
+
+/* #region filter block */
+main div:first-of-type{
     display: flex;
     flex-direction: column;
     gap: .4em;
 }
 
-details {
+main details{
     width: 300px;
     height: auto;
     transition: height 0.7s ease; /* Smooth transition for height */
@@ -65,11 +161,11 @@ details {
     background-color: var(--filter-block-color);
 }
 
-details[open] {
+main details[open] {
     height: auto; /* Allows the height to adjust when expanded */
 }
 
-details[open] > div {
+main details[open] > div {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -88,7 +184,7 @@ details[open] label{
     
 }
 
-details[open] input{
+main details[open] input{
     display: inline-block;
     align-self: self-start;
 
@@ -103,28 +199,33 @@ details[open] input{
 
 }
 
-details[open] input:checked{
+main details[open] input:checked{
     color: black;
     background-color: white;
 }
 
-details summary {
+main details summary {
     list-style: none; /* Remove default arrow */
     display: flex;
     justify-content: space-between;
     cursor: pointer;
 }
 
-details summary::after {
+main details summary::after {
     content: "➢"; /* Custom arrow */
     scale: 2;
     transition: transform 0.3s;
 }
 
-details[open] summary::after {
+main details[open] summary::after {
     transform: rotate(90deg);
     /* transform: scale(2); */
 }
+/* #endregion */
+
+/* #region cards block */
+
+/* #endregion */
 
 
 /* #region Filtering */
@@ -175,6 +276,18 @@ details[open] summary::after {
     color: blue;
     display: none;
 }
+
+/* price */
+:has(#price1:checked) li:has(.expensive){
+    color: blue;
+    display: none;
+}
+
+:has(#price2:checked) li:has(.cheap){
+    color: blue;
+    display: none;
+}
+
 /* #endregion */
 
 
@@ -197,3 +310,4 @@ details[open] summary::after {
     }
   }
 /* #endregion */
+
