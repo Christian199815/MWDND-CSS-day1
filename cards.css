@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+
+    --background: #eee;
+    --blue: #44b;
+    --yellow: #c49f0c;
+    --red: red;
+    --white: #fff;
+}
+
+
+section {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: .5em;
+    row-gap: 3em;
+    justify-items: center;
+}
+
+
+
+body > div {
+    container-name: article;
+    container-type: inline-size;
+}
+
+
+/* card */
+article {
+    display: flex;
+    flex-direction: column;
+    width: 13em;
+    background-color: var(--background);
+    position: relative;
+}
+
+/* afbeelding */
+article img {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+/* sterren */
+article > div > div > p {
+    display: inline;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--yellow);
+}
+
+article > div > div {
+    display: inline;
+}
+
+/* like button */
+article > div label {
+    display: inline-block;
+    height: 1em;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+svg {
+    stroke: var(--red);
+    stroke-width: 20;
+    fill: transparent;
+    transition: fill .2s;
+}
+
+/* liken input */
+article > div input {
+    display: none;
+}
+
+/* sterren en like div */
+article > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .5em 0;
+}
+
+
+/* hartje vullen bij input:checked */
+article > div:has(:checked) label svg {
+    fill: var(--red);
+}
+
+.rating-5 p:nth-last-child(n + 1),
+.rating-4 p:nth-last-child(n + 2),
+.rating-3 p:nth-last-child(n + 3),
+.rating-2 p:nth-last-child(n + 4),
+.rating-1 p:nth-last-child(n + 5) {
+    color: var(--yellow);
+}
+
+article button {
+    background-color: var(--blue);
+    color: var(--white);
+    width: fit-content;
+    border: none;
+    border-radius: .25em;
+    padding: .5em 1em;
+    display: inline-block;
+    position: absolute;
+    right: 1em;
+    bottom: .5em;
+    cursor: pointer;
+}
+
+article h3:last-of-type {
+    display: inline;
+    position: absolute;
+    bottom: .5em;
+    left: 1em;
+}
+
+article p {
+    margin-bottom: 2.5em !important;
+}
+
+article > div, article h3:not(:last-of-type), article > p {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+
+@container article (max-width: 888px){
+    section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@container article (max-width: 672px){
+    section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@container article (max-width: 456px){
+    section {
+        grid-template-columns: 1fr;
+    }
+}
