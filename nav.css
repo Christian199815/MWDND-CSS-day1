@@ -10,6 +10,11 @@
     font-family: Poppins, Helvetica, sans-serif;
 }
 
+body>div{
+    container-name: headerTest;
+    container-type: inline-size;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -18,21 +23,29 @@ header {
     justify-content: space-between;
     padding: 1.5em 3em;
     column-gap: 4em;
-    row-gap: 1.5em;
+    
 }
 
 header > img {
     height: 2em;
     flex: 1;
     justify-content: flex-start;
+
 }
 
 header > form {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     flex: 4;
+    background-color: rgb(235, 235, 235);
+    border-radius: .3em;
 
+}
+header > form img{
+    width: 3em;
+    height: 3em;
 }
 
 header > div {
@@ -55,9 +68,9 @@ header > div img:nth-child(3){
 }
 
 header > form input{
-    background-color: rgb(235, 235, 235);
+    background-color: transparent;
     border: none;
-    border-radius: .3em;
+
     padding: 1em 1.5em;
     width: 100%;
 }
@@ -80,6 +93,7 @@ nav ul {
     gap: 1.5em;
     margin: 0;
     padding: 0;
+    text-transform: capitalize;
 }
 
 main > h1{
