@@ -80,9 +80,33 @@ header > form input::placeholder{
     color:black;
 }
 
+@container headerTest (max-width: 1000px) {
+    header{
+        gap: 0;
+    }
+     header > img {
+        height: 3em;
+        flex:unset;
+    }
+    
+    header > form {
+        width: 30%;
+        background-color: transparent;
+    }
+    form input{
+        display: none;
+    }
+    header > div {
+        flex: unset;
+        justify-content: center;
+    }
+    
+
+}
+
 nav {
     width: 100%;
-    text-align: center;
+    overflow-x: scroll;
 }
 
 nav ul {
