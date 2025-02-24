@@ -1,0 +1,201 @@
+:root{
+    --filter-block-color: #F6F6F6;
+    --content-block-color: #3a6fba;
+}
+
+body{
+    background-color: white;
+    display: flex;
+
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+body > div:nth-of-type(1){
+
+}
+
+body > div:nth-of-type(2){
+    padding-left: 5em;
+    width: 100%;
+
+    background-color: var(--content-block-color);
+
+    container-type: inline-size;
+    container-name: content-block;
+}
+
+
+li{
+    width: 1em;
+    height: 2em;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 25%;
+}
+
+
+#filter-block{
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+}
+
+details {
+    width: 300px;
+    height: auto;
+    transition: height 0.7s ease; /* Smooth transition for height */
+    padding: 2em;
+
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+
+    background-color: var(--filter-block-color);
+}
+
+details[open] {
+    height: auto; /* Allows the height to adjust when expanded */
+}
+
+details[open] > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 2em;
+    gap: .3em;
+}
+
+
+
+details[open] label{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 2em;
+
+    
+}
+
+details[open] input{
+    display: inline-block;
+    align-self: self-start;
+
+    /* all: unset; */
+
+    background-color: white;
+    border-radius: 0;
+    border: none;
+    width: 1em;
+    height: 1em;
+    pointer-events: visible;
+
+}
+
+details[open] input:checked{
+    color: black;
+    background-color: white;
+}
+
+details summary {
+    list-style: none; /* Remove default arrow */
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+details summary::after {
+    content: "➢"; /* Custom arrow */
+    scale: 2;
+    transition: transform 0.3s;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+    /* transform: scale(2); */
+}
+
+
+/* #region Filtering */
+/* ages */
+:has(#age1:checked) li:has(.normal), :has(#age1:checked) li:has(.old) {
+    color: blue;
+    display: none;
+}
+
+:has(#age2:checked) li:has(.young), :has(#age2:checked) li:has(.old) {
+    color: blue;
+    display: none;
+}
+
+:has(#age3:checked) li:has(.young),:has(#age3:checked) li:has(.normal)  {
+    color: blue;
+    display: none;
+}
+
+/* liked */
+:has(#lp1:checked) li:has(.unliked) {
+    color: blue;
+    display: none;
+}
+
+/* rating */
+:has(#r1:checked) li:has(:is(.rating-2, .rating-3, .rating-4, .rating-5)) {
+    color: blue;
+    display: none;
+}
+
+:has(#r2:checked) li:has(:is(.rating-1, .rating-3, .rating-4, .rating-5)) {
+    color: blue;
+    display: none;
+}
+
+:has(#r3:checked) li:has(:is(.rating-2, .rating-1, .rating-4, .rating-5)) {
+    color: blue;
+    display: none;
+}
+
+:has(#r4:checked) li:has(:is(.rating-2, .rating-3, .rating-1, .rating-5)) {
+    color: blue;
+    display: none;
+}
+
+:has(#r5:checked) li:has(:is(.rating-2, .rating-3, .rating-4, .rating-1)) {
+    color: blue;
+    display: none;
+}
+/* #endregion */
+
+
+/* #region Content query */
+@container content-block (min-width: 200px) {
+    p {
+     color: red;
+    }
+  }
+
+  @container content-block (min-width: 480px) {
+     p {
+     color: yellow;
+    }
+  }
+
+  @container content-block (min-width: 640px) {
+    p {
+     color: blue;
+    }
+  }
+/* #endregion */
