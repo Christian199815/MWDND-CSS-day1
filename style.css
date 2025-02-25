@@ -22,7 +22,6 @@ body{
 
 #market{
     display: flex;
-
 }
 
 
@@ -47,7 +46,6 @@ header {
 header > img {
     height: 2em;
     flex: 1;
-    justify-content: flex-start;
 
 }
 
@@ -120,7 +118,8 @@ nav ul {
 
 /* #region title section */
 main section:first-of-type{
-    height: 22em;
+    height: auto;
+    padding-bottom: 3em;
 }
 
 main section h1{
@@ -241,7 +240,8 @@ main details[open] summary::after {
     width: 100%;
 }
 #card-block  section{
-    padding: 1em;
+    padding: 0 .5em;
+    /* padding: 1em; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: .5em;
@@ -252,7 +252,7 @@ main details[open] summary::after {
 #card-block section article {
     display: flex;
     flex-direction: column;
-    width: 13em;
+    width: 100%;
     background-color: var(--background);
     position: relative;
 }
@@ -354,85 +354,51 @@ main div:nth-of-type(2) section article > div, article h3:not(:last-of-type), ar
 
 /* #region Filtering */
 /* ages */
-:has(#age1:checked) li:has(.normal), :has(#age1:checked) li:has(.old) {
-    color: blue;
+:has(#age1:checked) article:has(:is(.normal, .old)){
     display: none;
 }
 
-:has(#age2:checked) li:has(.young), :has(#age2:checked) li:has(.old) {
-    color: blue;
+:has(#age2:checked) article:has(:is(.young, .old)){
     display: none;
 }
 
-:has(#age3:checked) li:has(.young),:has(#age3:checked) li:has(.normal)  {
-    color: blue;
-    display: none;
-}
-
-/* liked */
-:has(#lp1:checked) li:has(.unliked) {
-    color: blue;
+:has(#age3:checked) article:has(:is(.normal, .young)){
     display: none;
 }
 
 /* rating */
-:has(#r1:checked) li:has(:is(.rating-2, .rating-3, .rating-4, .rating-5)) {
-    color: blue;
+:has(#r1:checked) article:has(:is(.rating-2, .rating-3, .rating-4, .rating-5)) {
     display: none;
 }
 
-:has(#r2:checked) li:has(:is(.rating-1, .rating-3, .rating-4, .rating-5)) {
-    color: blue;
+:has(#r2:checked) article:has(:is(.rating-1, .rating-3, .rating-4, .rating-5)) {
     display: none;
 }
 
-:has(#r3:checked) li:has(:is(.rating-2, .rating-1, .rating-4, .rating-5)) {
-    color: blue;
+:has(#r3:checked) article:has(:is(.rating-2, .rating-1, .rating-4, .rating-5)) {
     display: none;
 }
 
-:has(#r4:checked) li:has(:is(.rating-2, .rating-3, .rating-1, .rating-5)) {
-    color: blue;
+:has(#r4:checked) article:has(:is(.rating-2, .rating-3, .rating-1, .rating-5)) {
     display: none;
 }
 
-:has(#r5:checked) li:has(:is(.rating-2, .rating-3, .rating-4, .rating-1)) {
-    color: blue;
+:has(#r5:checked) article:has(:is(.rating-2, .rating-3, .rating-4, .rating-1)) {
     display: none;
 }
 
 /* price */
-:has(#price1:checked) li:has(.expensive){
-    color: blue;
+:has(#price1:checked) article:has(.expensive){
     display: none;
 }
 
-:has(#price2:checked) li:has(.cheap){
-    color: blue;
+:has(#price2:checked) article:has(.cheap){
     display: none;
 }
 
 /* #endregion */
 
 /* #region Content query */
-@container content-block (min-width: 200px) {
-    p {
-     color: red;
-    }
-}
-
-  @container content-block (min-width: 480px) {
-     p {
-     color: yellow;
-    }
-  }
-
-  @container content-block (min-width: 640px) {
-    p {
-     color: blue;
-    }
-  }
-
 
   @container headerTest (max-width: 1000px) {
     header{
@@ -449,6 +415,10 @@ main div:nth-of-type(2) section article > div, article h3:not(:last-of-type), ar
     }
     form input{
         display: none;
+    }
+
+    form img{
+        align-self: flex-end;
     }
     header > div {
         flex: unset;
