@@ -9,14 +9,21 @@ async function loadData() {
         const fetchedOthers = await fetch(othersUrl);
         const othersData = await fetchedOthers.json();
 
-        console.log(othersData.data)
+        console.log(othersData.data[0].birthdate)
 
         section.innerHTML = `
-            ${othersData.data.map((person, index) => `
-                <article>
+            ${othersData.data.map((person, index) => {
+                const price = createPrice()
+                const priceCategory = getPriceCategory(price)
+                const age = getAge(person.birthDate)
+                const ageCategory = getAgeCategory(age)
+                const amountStars = amountOfStars()
+
+                return `
+                <article class="${priceCategory} rating-${amountStars} ${ageCategory}">
                     <img src="${person.avatar ? person.avatar : "./img/image.png"}" alt="avatar">
                     <div>
-                        <div class="rating-${amountOfStars()}">
+                        <div class="rating-${amountStars}">
                             <p>★</p><p>★</p><p>★</p><p>★</p><p>★</p>
                         </div>
                         <label for="liked-${index}">
@@ -28,10 +35,10 @@ async function loadData() {
                     </div>
                     <h3>${person.name}</h3>
                     ${person.bio ? `<p>${shortenText(person.bio)}</p>` : `<p>geen beschrijving</p>`}
-                    <h3>€ ${createPrice()}</h3>
+                    <h3>€ ${price}</h3>
                     <button type="submit">kopen</button>
                 </article>
-            `).join('')}
+            `}).join('')}
         `;
     } catch (error) {
         console.error('Error loading data:', error);
@@ -55,3 +62,40 @@ function shortenText(text) {
     const shortenedText = text.length > 200 ? text.slice(0, 200) + "..." : text
     return shortenedText
 }
+
+function getPriceCategory(price) {
+    if(price > 500) {return "expensive"}
+    if(price < 501) {return "cheap"}
+}
+
+function getAgeCategory(age) {
+    if(age >= 23) {return "young"}
+    if( 23 < age < 26) {return "normal"}
+    if(age >= 26) {return "old"}
+}
+
+function getAge(birthdate) {
+    const birth = new Date(birthdate);
+    const today = new Date();
+
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    const dayDiff = today.getDate() - birth.getDate();
+
+    // Adjust if the birthday hasn't occurred yet this year
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        age--;
+    }
+
+    return age;
+}
+
+// young
+// normal
+// old
+
+// rating-1
+// t/m 5
+
+// expensive
+// cheap
